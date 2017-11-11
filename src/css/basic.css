@@ -1,0 +1,83 @@
+/* ------Global------*/
+body {
+  font-family:"Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+}
+
+/*Buttons*/
+.generalBtn{
+
+}
+.editBtn{
+
+}
+
+
+/* ------Header------*/
+header{
+  display: block;
+  height:70px;
+  width: 100%;
+  background-color: #6cafd9;
+}
+ header h1{
+   text-align: center;
+   line-height: 1.8;
+   color: white;
+   margin-top: 0;
+ }
+
+/* ------main------*/
+/*.usernav{
+    background-color: #6cafd9;
+}*/
+.notesWrapper{
+  height: 600px;
+}
+#myNotes{
+  padding-left: 0;
+}
+
+.usernav{
+  height:40px;
+  margin-top: 20px;
+}
+.usernav h3{
+  display: inline-block;
+  margin-top: 0px;
+}
+.noteItem{
+    display:block;
+    margin-bottom: 5px;
+  }
+.noteItem a{
+  color:black;
+}
+.noteItem{
+  padding: 5px;
+}
+.note-category{
+  text-transform: uppercase;
+}
+.general{
+    background-color:#c1ddef;
+  }
+.history{
+  background-color:#e8C47d;
+}
+.literature{
+  background-color:#b4d49e;
+}
+.philosophy{
+  background-color:#CC9999;
+}
+
+
+
+.note-view > article {
+    display:none;
+}
+
+.note-view > article:target{
+    display:block;
+}
