@@ -9,6 +9,8 @@ $(document).ready(function(){
   dataParse(notes);
   $(".notes").append(noteBlock);
   $(".note-view").append(noteView);
+  $.unique(dropCat);
+  console.log(dropCat);
   $("#n-category").append(dropCat);
 
 });
@@ -17,24 +19,28 @@ $(document).ready(function(){
 /* data manipulation*/
 function dataParse(data){
   var num=1;
+  var dkeys=Object.keys(data);
    $.each(data, function() {
-    var id="note"+num;
-    var dateTr= moment(this.updatedOn*1000).format("Do MMM YYYY");
-     noteBlock.push(noteItem(this.title,this.category,dateTr,this.url,id));
-     noteView.push(noteContent(id,this.url,this.title,dateTr,this.content,));
-     dropCat.push(categoryList(this.category));
-     num++
+    var id=dkeys[num];
+    noteView.push(noteContent(id,this.url,this.title,this.updatedOn,this.content,));
+    noteBlock.push(noteItem(this.title,this.category,this.updatedOn,this.url,id));
+    dropCat.push(categoryList(this.category));
+    num++
    });
+
 }
+/* Note list item*/
 function noteItem(title,category,date,url,id){
-    return "<article class='noteItem " + category + "'><p class='note-category'>"+ category +"</p><h4><a href='#"+url+"'>"+title + "</a></h4><p >"+date+"</p></article>"
-
+  var dateTr= moment(date*1000).format("Do MMM YYYY");
+    return "<article class='noteItem " + category + "'><p class='note-category'>"+ category +"</p><h4><a href='#"+url+"'>"+title + "</a></h4><p >"+dateTr+"</p></article>"
 }
+/* Note view item*/
 function noteContent(id,url,title,date,content){
-
-   return "<article id='"+url+"' class='noteContent'><h2>"+ title +"</h2><p>"+date+"</p><p>"+content+"</p><button id='"+id+"' type='button' class='btn btn-primary pull-right' data-toggle='modal' data-target='#noteForm' onclick='editNote(id)' >Edit Note</button></article>"
-
+  var dateTr= moment(date*1000).format("Do MMM YYYY");
+  var time =moment(date*1000).format('Do MMMM YYYY, h:mm:ss a');
+   return "<article id='"+url+"' class='noteContent'><h2>"+ title +"</h2><p>Last edited: "+time+"</p><p>"+content+"</p><button id='"+id+"' type='button' class='btn btn-primary pull-right' data-toggle='modal' data-target='#noteForm' onclick='editNote(id)' >Edit Note</button></article>"
  }
+ /* Dropdown categories menu*/
 function categoryList(category){
   return "<option>"+category+"</option>"
 }

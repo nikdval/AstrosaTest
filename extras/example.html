@@ -1,0 +1,7 @@
+{% for note in notes_list %}
+<article class="noteItem {{ note.category }}">
+  <p class="note-category">{{ note.category }}</p>
+  <h4><a href="{{ note.hash_url }}">{{ note.title }}</a></h4>
+  <p>{{ note.editedOn }}</p>
+</article>
+{% endfor %}

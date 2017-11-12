@@ -5,11 +5,10 @@ body {
 }
 
 /*Buttons*/
-.generalBtn{
-
-}
-.editBtn{
-
+.btn-primary{
+  background-color: #6cafd9;
+  border-color: #6cafd9;
+  border-radius: 6px
 }
 
 
@@ -72,12 +71,13 @@ header{
   background-color:#CC9999;
 }
 
-
-
 .note-view > article {
     display:none;
 }
 
 .note-view > article:target{
     display:block;
+}
+.noteContent h2{
+  color: #6cafd9;
 }
